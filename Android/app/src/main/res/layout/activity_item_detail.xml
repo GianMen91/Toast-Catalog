@@ -1,0 +1,43 @@
+<!-- res/layout/activity_item_detail.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ItemDetailActivity">
+
+    <TextView
+        android:id="@+id/tv_item_name_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tv_item_price_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_item_currency_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Currency"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_item_last_sold_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Sold"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
