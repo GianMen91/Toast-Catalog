@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             // Handle item click: Open the ItemDetailActivity to display item details
             val intent = Intent(this, ItemDetailActivity::class.java)
             intent.putExtra("name", item.name)
-            intent.putExtra("price", item.price)
+            intent.putExtra("price", item.price.toString())
             intent.putExtra("currency", item.currency)
             intent.putExtra("last_sold", item.last_sold)
             startActivity(intent)
