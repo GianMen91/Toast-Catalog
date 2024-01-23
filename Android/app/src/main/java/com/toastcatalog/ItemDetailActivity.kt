@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter
 class ItemDetailActivity : AppCompatActivity() {
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
