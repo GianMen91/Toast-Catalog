@@ -1,11 +1,14 @@
 package com.toastcatalog.webapi
 
-import android.content.ContentValues.TAG
 import android.util.Log
 import com.toastcatalog.webapi.dto.Item
+import com.toastcatalog.webapi.dto.ItemsResponse
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+
 
 class NetworkClient(private val onDataLoaded: (List<Item>?) -> Unit) {
 
@@ -13,10 +16,10 @@ class NetworkClient(private val onDataLoaded: (List<Item>?) -> Unit) {
         val apiService = RetrofitClient.instance
 
         val call = apiService.getItems()
-        call.enqueue(object : Callback<List<Item>> {
-            override fun onResponse(call: Call<List<Item>>, response: Response<List<Item>>) {
+        call.enqueue(object : Callback<ItemsResponse> {
+            override fun onResponse(call: Call<ItemsResponse>, response: Response<ItemsResponse>) {
                 if (response.isSuccessful) {
-                    val items = response.body()
+                    val items = response.body()?.items
                     onDataLoaded(items)
                 } else {
                     onDataLoaded(null)
@@ -24,10 +27,14 @@ class NetworkClient(private val onDataLoaded: (List<Item>?) -> Unit) {
                 }
             }
 
-            override fun onFailure(call: Call<List<Item>>, t: Throwable) {
+            override fun onFailure(call: Call<ItemsResponse>, t: Throwable) {
                 onDataLoaded(null)
                 Log.e(TAG, "Network request failed", t)
             }
         })
+    }
+
+    companion object {
+        private const val TAG = "NetworkClient"
     }
 }
